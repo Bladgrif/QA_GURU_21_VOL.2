@@ -1,10 +1,9 @@
 package com.demoqa.forms;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -20,9 +19,12 @@ public class practice_form {
     @Test
     void sucessfullRegistrationFormTest() {
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $("#firstName").setValue("Roman");
         $("#lastName").setValue("Grigorev");
         $("#userEmail").setValue("Grigorev@mail.ru");
+        $("#userNumber").setValue("0123456789");
 
         $("#genterWrapper").find(byText("Female")).click(); //good
 //        $("#gender-radio-3").parent().click(); //good
@@ -34,8 +36,16 @@ public class practice_form {
         $("[aria-label='Choose Sunday, May 6th, 2007']").click();
         $("#subjectsInput").setValue("Accounting").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#uploadPicture").uploadFromClasspath("src/test/resources/1.png");
+        $("#uploadPicture").uploadFromClasspath("imj/Scr.png");
         $("#currentAddress").setValue("Russia street");
+        $("#state").click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
+        $("#submit").click();
+
+        $(".modal-content").shouldBe(Condition.visible);
+
 
 
         sleep(10000);
