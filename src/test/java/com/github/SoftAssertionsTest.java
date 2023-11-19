@@ -37,6 +37,7 @@ public class SoftAssertionsTest {
         $("#wiki-tab").click();
         $("#wiki-pages-box").$(".wiki-more-pages-link button").click();
         $("#wiki-pages-box").$(byText("SoftAssertions")).click();
-        $("#wiki-body").$(byText("3. Using JUnit5 extend test class:")).sibling(0).shouldHave(text(junit5));
+        $("#wiki-body").$(byText("3. Using JUnit5 extend test class:"))
+                .sibling(0).shouldHave(text(junit5));
     }
 }
