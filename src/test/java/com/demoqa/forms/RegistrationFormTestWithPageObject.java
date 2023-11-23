@@ -22,7 +22,13 @@ public class RegistrationFormTestWithPageObject extends TestBase {
                 .SetUserEmail("Grigorev@mail.ru")
                 .SetUserNumber("0123456789")
                 .SetCurrentAddress("Russia street")
-                .SetGenterWrapper("Female");
+                .SetGenterWrapper("Female")
+                .SetSubjectsInput("Accounting")
+                .SetHobbiesWrapper("Sports")
+                .SetUploadPicture("imj/Scr.png")
+                .SetState("NCR")
+                .SetCity("Delhi")
+                .SetDateOfBirthInput("6","May","2007");
 
         //Заполнение простых полей
 //        $("#firstName").setValue("Roman");
@@ -35,13 +41,14 @@ public class RegistrationFormTestWithPageObject extends TestBase {
         $(".react-datepicker__month-select").selectOption("May");
         $(".react-datepicker__year-select").selectOption("2007");
         $("[aria-label='Choose Sunday, May 6th, 2007']").click();
-        $("#subjectsInput").setValue("Accounting").pressEnter();
-        $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#uploadPicture").uploadFromClasspath("imj/Scr.png");
-        $("#state").click();
-        $("#stateCity-wrapper").$(byText("NCR")).click();
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText("Delhi")).click();
+
+//        $("#subjectsInput").setValue("Accounting").pressEnter();
+//        $("#hobbiesWrapper").$(byText("Sports")).click();
+//        $("#uploadPicture").uploadFromClasspath("imj/Scr.png");
+//        $("#state").click();
+//        $("#stateCity-wrapper").$(byText("NCR")).click();
+//        $("#city").click();
+//        $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
 
 
