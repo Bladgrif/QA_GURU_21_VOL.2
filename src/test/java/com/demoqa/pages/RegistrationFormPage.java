@@ -107,7 +107,7 @@ public class RegistrationFormPage {
         return this;
     }
 
-    public RegistrationFormPage firstCheck() {
+    public RegistrationFormPage checkThatTheSiteHasOpened() {
         modalContent.should(appear);
         wordsOfGratitude.shouldBe(text("Thanks for submitting the form"));
         return this;

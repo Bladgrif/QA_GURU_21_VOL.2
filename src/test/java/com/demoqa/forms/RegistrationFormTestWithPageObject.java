@@ -25,7 +25,7 @@ public class RegistrationFormTestWithPageObject extends TestBase {
                 .SetCity("Delhi")
                 .SetDateOfBirthInput("06", "May", "2007")
                 .SetSubmit()
-                .firstCheck();
+                .checkThatTheSiteHasOpened();
 
         registrationFormPage.checkFinalResultStudentName("Roman Grigorev")
                 .checkFinalResultStudentEmail("Grigorev@mail.ru")
