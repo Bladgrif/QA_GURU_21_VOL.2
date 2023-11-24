@@ -11,6 +11,7 @@ public class RegistrationFormTestWithPageObject extends TestBase {
     @Test
     void sucessfullRegistrationFormTest() {
         registrationFormPage.openPage()
+                .removeBanners()
                 .SetFirstName("Roman")
                 .SetLastName("Grigorev")
                 .SetUserEmail("Grigorev@mail.ru")
