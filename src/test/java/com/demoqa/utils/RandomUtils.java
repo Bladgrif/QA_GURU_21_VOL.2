@@ -34,7 +34,7 @@ public class RandomUtils {
     }
 
     public String getUserNumber() {
-        return fakerEn.numerify("##########");
+        return fakerEn.phoneNumber().subscriberNumber(10);
     }
 
     public String getCurrentAddress() {
