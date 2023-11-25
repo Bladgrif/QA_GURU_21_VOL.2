@@ -31,7 +31,7 @@ public class RegistrationFormTest extends TestBase {
         $("[aria-label='Choose Sunday, May 6th, 2007']").click();
         $("#subjectsInput").setValue("Accounting").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#uploadPicture").uploadFromClasspath("imj/Scr.png");
+        $("#uploadPicture").uploadFromClasspath("Cat.png");
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();
         $("#city").click();
@@ -48,7 +48,7 @@ public class RegistrationFormTest extends TestBase {
         $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("Date of Birth 06 May,2007"));
         $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("Accounting"));
         $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Sports"));
-        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("Scr.png"));
+        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("Cat.png"));
         $(".table-responsive").$(byText("Address")).parent().shouldHave(text("Russia street"));
         $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("NCR Delhi"));
     }
