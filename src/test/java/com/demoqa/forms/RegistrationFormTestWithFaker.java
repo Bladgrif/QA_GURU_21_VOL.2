@@ -4,6 +4,7 @@ import com.demoqa.base.TestBase;
 import com.demoqa.pages.RegistrationFormPage;
 import com.demoqa.pages.RegistrationResultPage;
 import com.demoqa.utils.Variables;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class RegistrationFormTestWithFaker extends TestBase {
@@ -13,6 +14,7 @@ public class RegistrationFormTestWithFaker extends TestBase {
     Variables variables = new Variables();
 
     @Test
+    @DisplayName("Successful registration by clicking the button in the authorization form - with data generation")
     void sucessfullRegistrationFormTest() {
         registrationFormPage.openPage()
                 .removeBanners()
