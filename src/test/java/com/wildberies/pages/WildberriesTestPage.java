@@ -15,8 +15,8 @@ public class WildberriesTestPage {
 
     SelenideElement catalogNavbarLink =$("button .nav-element__burger-line");
 //    SelenideElement catalogNavbarLink = $(".nav-element__burger");
-    ElementsCollection menuBurger = $$(".menu-burger__main-list");
-    SelenideElement catalogTitle = $(".catalog-title");
+    ElementsCollection menuBurger = $$(".menu-burger__main-list .menu-burger__main-list-link");
+    SelenideElement catalogTitle = $(".catalog-title-wrap .catalog-title");
     SelenideElement currencyDropdown = $(".simple-menu__currency");
 
     public WildberriesTestPage openPage() {
@@ -33,7 +33,7 @@ public class WildberriesTestPage {
         return this;
     }
     public WildberriesTestPage checkCatalogTitle(String value) {
-        catalogTitle.$(byText(value)).click();
+        catalogTitle.shouldHave(text(value));
         return this;
     }
 
