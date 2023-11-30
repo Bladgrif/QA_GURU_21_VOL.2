@@ -18,7 +18,8 @@ public class TextBoxPage {
             resultCurrentAddress = $("#output #currentAddress"),
             resultPermanentAddress = $("#output #permanentAddress"),
             menu_list = $(".menu-list"),
-            header = $(".pattern-backgound.playgound-header");
+            header = $(".pattern-backgound.playgound-header"),
+            userForm = $("#userForm");
 
     public TextBoxPage openPage() {
         open("/text-box");
@@ -82,6 +83,10 @@ public class TextBoxPage {
 
     public TextBoxPage checkCategory(String value) {
         header.shouldHave(text(value));
+        return this;
+    }
+    public TextBoxPage checkUserForm(String value) {
+        userForm.$(byText(value)).shouldHave(text(value));
         return this;
     }
 
