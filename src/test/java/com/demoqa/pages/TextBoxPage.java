@@ -3,6 +3,7 @@ package com.demoqa.pages;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -15,7 +16,9 @@ public class TextBoxPage {
             resultName = $("#output #name"),
             resultEmail = $("#output #email"),
             resultCurrentAddress = $("#output #currentAddress"),
-            resultPermanentAddress = $("#output #permanentAddress");
+            resultPermanentAddress = $("#output #permanentAddress"),
+            menu_list = $(".menu-list"),
+            header = $(".pattern-backgound.playgound-header");
 
     public TextBoxPage openPage() {
         open("/text-box");
@@ -64,6 +67,21 @@ public class TextBoxPage {
 
     public TextBoxPage checkResultPermanentAddress(String value) {
         resultPermanentAddress.shouldHave(text(value));
+        return this;
+    }
+
+    public TextBoxPage openPageParametrized() {
+        open("/links");
+        return this;
+    }
+
+    public TextBoxPage openCategory(String value) {
+        menu_list.$(byText(value)).click();
+        return this;
+    }
+
+    public TextBoxPage checkCategory(String value) {
+        header.shouldHave(text(value));
         return this;
     }
 
