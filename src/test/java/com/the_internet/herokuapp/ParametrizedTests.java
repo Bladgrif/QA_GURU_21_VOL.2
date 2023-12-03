@@ -3,6 +3,7 @@ package com.the_internet.herokuapp;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.the_internet.herokuapp.Data.Names;
 import com.the_internet.herokuapp.pages.ParametrizedTestsPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -35,19 +36,7 @@ public class ParametrizedTests {
                 .openCategory(category)
                 .checkDescriptionOfPage(description);
     }
-    public enum Names {
-        TYPOS("Typos"), FRAMES("Frames");
 
-        private final String value;
-
-        Names(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-    }
     @ParameterizedTest(name = "After switching to a {0}, its name is displayed at the top")
     @EnumSource(Names.class)
     void CheckingNameAfterSwitchingSecondWay(Names category) {
