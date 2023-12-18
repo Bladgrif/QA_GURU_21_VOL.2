@@ -1,14 +1,10 @@
 plugins {
-    id 'java-library'
+    id 'java'
     id 'io.qameta.allure' version '2.10.0'
 }
 
-repositories {
-    mavenCentral()
-}
-
-group 'guru.qa'
-version '1.0'
+group 'org.example'
+version '1.0-SNAPSHOT'
 
 allure {
     report {
@@ -24,24 +20,21 @@ allure {
     }
 }
 
-dependencies {
-    testImplementation(
-            'org.slf4j:slf4j-simple:2.0.7',
-            'com.codeborne:selenide:6.16.0',
-            'org.junit.jupiter:junit-jupiter:5.9.3',
-            'com.github.javafaker:javafaker:1.0.2',
-            'io.qameta.allure:allure-selenide:2.19.0'
-    )
+repositories {
+    mavenCentral()
 }
 
+dependencies {
+    testImplementation(
+            'org.junit.jupiter:junit-jupiter-api:5.9.0',
+            'com.codeborne:selenide:6.7.2',
+            'io.qameta.allure:allure-selenide:2.19.0'
+    )
 
-//compileJava {
-//    options.encoding = 'UTF-8'
-//}
-//compileTestJava {
-//    options.encoding = 'UTF-8'
-//}
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.9.0')
+}
 
 test {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
 }
