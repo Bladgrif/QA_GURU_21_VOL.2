@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class Start {
     @Test
     void name() {
-        Assertions.assertTrue(3>2);
+        Assertions.assertTrue(3 > 2);
     }
 
     @BeforeEach

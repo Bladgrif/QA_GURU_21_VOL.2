@@ -46,3 +46,13 @@ test {
     useJUnitPlatform()
     systemProperties(System.getProperties())
 }
+
+test {
+    useJUnitPlatform()
+}
+
+task simple_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("simple")
+    }
+}
