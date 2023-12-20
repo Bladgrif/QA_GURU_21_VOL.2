@@ -14,24 +14,24 @@ public class TextBoxWithAllure extends TestBase {
     TextBoxPage textBoxPage = new TextBoxPage();
 
     @Test
-    @Feature("Форма TextBox")
+    @Feature("Form TextBox")
     @Story("Elements")
     @Owner("roman_grigoriev")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Filling out the TextBox form and checking")
     void fileFormTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
-        step("Открываем главную страницу", () -> {
+        step("Opening the main page", () -> {
             textBoxPage.openPage();
         });
-        step("Заполняем поля", () -> {
+        step("Filling in the fields", () -> {
             textBoxPage.SetUserName("Roman Grigorev")
                     .SetUserEmail("Roman@gmail.com")
                     .SetCurrentAddress("Cheboksary")
                     .SetPermanentAddress("Cheboksary-2")
                     .pressButton();
         });
-        step("Проверяем заполенные поля", () -> {
+        step("We check the completed fields", () -> {
             textBoxPage.checkResultName("Roman Grigorev")
                     .checkResultEmail("Roman@gmail.com")
                     .checkResultCurrentAddress("Cheboksary")

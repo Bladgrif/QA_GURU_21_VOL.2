@@ -18,7 +18,7 @@ public class TextBoxWithAllureWebSteps extends TestBase {
     private static final String PermanentAddress = "Cheboksary-2";
 
     @Test
-    @Feature("Форма TextBox")
+    @Feature("Form TextBox")
     @Story("Elements")
     @Owner("roman_grigoriev")
     @Severity(SeverityLevel.CRITICAL)
