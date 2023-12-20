@@ -20,53 +20,53 @@ public class StepsWithAllure {
             resultCurrentAddress = $("#output #currentAddress"),
             resultPermanentAddress = $("#output #permanentAddress");
 
-    @Step("Открываем страницу")
+    @Step("Open page")
     public void openPage() {
         open("/text-box");
     }
 
-    @Step("Вводим имя и фамилию пользователя")
+    @Step("Enter the user's first and last name")
     public void SetUserName(String value) {
         userNameInput.setValue(value);
     }
 
-    @Step("Вводим текущий адрес пользователя")
+    @Step("Enter the user's current address")
     public void SetCurrentAddress(String value) {
         currentAddressInput.setValue(value);
     }
 
-    @Step("Вводим второй адрес пользователя")
+    @Step("Enter the second user's address")
     public void SetPermanentAddress(String value) {
         permanentAddressInput.setValue(value);
     }
 
-    @Step("Вводим почту пользователя")
+    @Step("Entering the user's email")
     public void SetUserEmail(String value) {
         userEmailInput.setValue(value);
 
     }
 
-    @Step("Нажимаем Enter")
+    @Step("Press Enter")
     public void pressButton() {
         submit.click();
     }
 
-    @Step("Проверяем заполнение имени и фамилии")
+    @Step("We check the filling in of the first and last name")
     public void checkResultName(String value) {
         resultName.shouldHave(text(value));
     }
 
-    @Step("Проверяем заполнение почты")
+    @Step("Checking the filling of the mail")
     public void checkResultEmail(String value) {
         resultEmail.shouldHave(text(value));
     }
 
-    @Step("Проверяем заполнение адреса")
+    @Step("Checking the address filling")
     public void checkResultCurrentAddress(String value) {
         resultCurrentAddress.shouldHave(text(value));
     }
 
-    @Step("Проверяем заполнение адреса")
+    @Step("Checking the address filling")
     public void checkResultPermanentAddress(String value) {
         resultPermanentAddress.shouldHave(text(value));
     }
