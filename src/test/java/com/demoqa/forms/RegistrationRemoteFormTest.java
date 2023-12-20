@@ -1,6 +1,6 @@
 package com.demoqa.forms;
 
-import com.demoqa.base.TestBase;
+import com.demoqa.base.RemoteTestBase;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class RegistrationRemoteFormTest extends TestBase {
+public class RegistrationRemoteFormTest extends RemoteTestBase {
 
     @Test
     @Tag("remote")
