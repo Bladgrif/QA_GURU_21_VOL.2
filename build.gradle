@@ -14,11 +14,11 @@ allure {
     report {
         version.set("2.23.0")
     }
-    adapter { // отвечает за появление папочки build/allure-results
-        aspectjWeaver.set(true) //обработка аннотации @Step
+    adapter { // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ build/allure-results
+        aspectjWeaver.set(true) //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ @Step
         frameworks {
-            junit5 { //название фреймворка
-                adapterVersion.set("2.23.0") //версия интеграции фреймворка и Allure
+            junit5 { //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                adapterVersion.set("2.23.0") //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ Allure
             }
         }
     }
@@ -45,6 +45,13 @@ dependencies {
 test {
     useJUnitPlatform()
     systemProperties(System.getProperties())
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+}
+compileTestJava {
+    options.encoding = 'UTF-8'
 }
 
 test {
