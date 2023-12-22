@@ -33,7 +33,8 @@ dependencies {
             "io.qameta.allure:allure-selenide:$allureVersion",
             'org.junit.jupiter:junit-jupiter:5.9.3',
             'com.github.javafaker:javafaker:1.0.2',
-            'io.qameta.allure:allure-selenide:2.23.0'
+            'io.qameta.allure:allure-selenide:2.23.0',
+            'org.slf4j:slf4j-simple:2.0.7'
     )
 }
 
@@ -45,9 +46,20 @@ dependencies {
 //    options.encoding = 'UTF-8'
 //}
 
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 tasks.withType(Test) {
     useJUnitPlatform()
     systemProperties(System.getProperties())
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
 }
 
 compileJava {

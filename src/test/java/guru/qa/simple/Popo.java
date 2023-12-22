@@ -11,7 +11,7 @@ public class Popo {
     @Test
     @Tag("popo")
     void someTest123() {
-        assertTrue(true);
         System.out.println("Popo hello");
+//        assertTrue(false);
     }
 }

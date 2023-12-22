@@ -40,8 +40,8 @@ public class SystemPropertiesTests {
     @Test
     @Tag("property")
     void systemProperties4Test() {
-//        String browser = System.getProperty("browser", "mozilla");
-        String browser = "BROWSER";
+        String browser = System.getProperty("browser", "mozilla");
+//        String browser = "BROWSER";
 
         System.out.println(browser);
         // gradle property_test
