@@ -45,7 +45,7 @@ dependencies {
 //    options.encoding = 'UTF-8'
 //}
 
-test {
+tasks.withType(Test) {
     useJUnitPlatform()
     systemProperties(System.getProperties())
 }
@@ -57,18 +57,42 @@ compileTestJava {
     options.encoding = 'UTF-8'
 }
 
-test {
-    useJUnitPlatform()
-}
+//test {
+//    useJUnitPlatform()
+//}
 
 task simple_test(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags("simple")
     }
 }
 
 task remote_test(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags("remote")
+    }
+}
+
+task property_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("property")
+    }
+}
+
+task hello_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("hello")
+    }
+}
+
+task fromgradle_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("fromgradle")
+    }
+}
+
+task popo_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("popo")
     }
 }
