@@ -23,7 +23,7 @@ public class RemoteTestBase {
         Configuration.browser = System.getProperty("browser","chrome");
         Configuration.browserVersion = System.getProperty("version", "100.0");
         Configuration.pageLoadStrategy = "eager";
-        Configuration.remote = System.getProperty("webDriver","https://user1:1234@selenoid.autotests.cloud/");
+        Configuration.remote = System.getProperty("webDriver","https://user1:1234@selenoid.autotests.cloud/wd/hub");
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
