@@ -12,8 +12,8 @@ import static com.codeborne.selenide.Selenide.*;
 public class ChoseCategory extends TestBase {
 
     @Test
-    @DisplayName("OpenCatalogAndFindCategorysAndSubcategories")
-    void choseAutoAndFindSubcategories() {
+    @DisplayName("Checking the availability of all categories in the Product Catalog")
+    void checkCategotyAndSubcategory() {
         open("https://www.avito.ru/");
 //        $("[data-marker='more-popup/reference']").$(byText("Все категории")).click();
         $("#a").parent().parent().parent().$(byText("Все категории")).click();
