@@ -3,6 +3,9 @@ package com.avito.tests;
 import com.avito.base.TestBase;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -10,9 +13,17 @@ public class FilteringSearch extends TestBase {
     @Test
     void FilteringSearchResults() {
         open("https://www.avito.ru/");
-        $("#a").parent().parent().parent().$(byText("Все категории")).click();
-        $(".new-rubricator-content-leftcontent-_hhyV").$(byText("Электроника")).hover();
-        $("[data-name='Телефоны']").parent().sibling(0).$("[data-name='Телефоны']").click();
+        $("#a").parent().parent().parent().$(byText("Р’СЃРµ РєР°С‚РµРіРѕСЂРёРё")).click();
+
+        $(".new-rubricator-content-leftcontent-_hhyV").$(byText("Р­Р»РµРєС‚СЂРѕРЅРёРєР°")).hover();
+        $("[data-name='Р­Р»РµРєС‚СЂРѕРЅРёРєР°']").parent().sibling(0).$("[data-name='РњРѕР±РёР»СЊРЅС‹Рµ С‚РµР»РµС„РѕРЅС‹']").click();
+        $("[placeholder='РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊ']").setValue("Apple");
+        $("[data-placement='bottom-start']").$(byText("Apple")).click();
+        $("button[data-marker='search-filters/submit-button']").click();
+        List<String> texts = $$("[data-marker='catalog-serp'] [itemprop='name']").texts();
+        for (String text : texts) {
+            assert (text).matches(".*iPhone.*");
+        }
         sleep(2000);
     }
 }
