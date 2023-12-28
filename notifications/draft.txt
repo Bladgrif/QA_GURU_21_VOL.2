@@ -1,0 +1,4 @@
+https://t.me/ReportForMyTests_bot
+6870910360:AAFz6RWZ-hW_rrnyLg_LAyEQ7Yc-fzOyXfg
+
+java "-DconfigFile=notifications/config.json" -jar notifications/allure-notifications-4.6.1.jar
