@@ -10,6 +10,7 @@ public class FilteringSearch extends TestBase {
     @Test
     void FilteringSearchResults() {
         open("https://www.avito.ru/");
+        $("#a").parent().parent().parent().$(byText("Все категории")).click();
         $(".new-rubricator-content-leftcontent-_hhyV").$(byText("Электроника")).hover();
         $("[data-name='Телефоны']").parent().sibling(0).$("[data-name='Телефоны']").click();
         sleep(2000);
