@@ -2,12 +2,19 @@ package com.avito.tests;
 
 import com.avito.base.TestBase;
 import com.codeborne.selenide.CollectionCondition;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.*;
+
+@Tag("home")
+@Feature("Check Category on main page")
+@Owner("Roman Grigorev")
 
 public class ProductSearch extends TestBase {
     @Test
