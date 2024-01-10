@@ -20,7 +20,6 @@ public class ProductSearchPage {
     @Step("Enter the name of the model in the search field")
     public ProductSearchPage setFieldSearch(String value) {
         fieldSearch.setValue(value).pressEnter();
-        ;
         return this;
     }
 

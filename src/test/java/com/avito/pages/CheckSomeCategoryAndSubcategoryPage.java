@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class CheckSomeCategoryAndSubcategoryPage {
 //    SelenideElement mainButtonAllCategories = $("#a").parent().parent().parent().$(byText("Все категории")),
-    SelenideElement mainButtonAllCategories = $("button[data-marker='top-rubricator/all-categories']").$(byText("Все категории")),
+    SelenideElement mainButtonAllCategories = $("button[data-marker='top-rubricator/all-categories']"),
             buttonFromCatalog = $(".new-rubricator-content-leftcontent-_hhyV"),
             textButtonFromCatalogTransport = $("[data-name='Транспорт']"),
             textButtonFromCatalogRealty = $("[data-name='Недвижимость']"),
@@ -24,10 +24,11 @@ public class CheckSomeCategoryAndSubcategoryPage {
     @Step("Open page")
     public CheckSomeCategoryAndSubcategoryPage openPage() {
         open("https://www.avito.ru/");
+        sleep(4000);
         return this;
     }
 
-    @Step("Click the button with all categories")
+    @Step("Button with all categories should be visible")
     public CheckSomeCategoryAndSubcategoryPage mainButtonAllCategoriesShouldBeVisible() {
         mainButtonAllCategories.shouldBe(visible);
         return this;
@@ -36,6 +37,7 @@ public class CheckSomeCategoryAndSubcategoryPage {
     @Step("Click the button with all categories")
     public CheckSomeCategoryAndSubcategoryPage mainButtonAllCategoriesClick() {
         mainButtonAllCategories.click();
+        buttonFromCatalog.shouldBe(visible);
         return this;
     }
 

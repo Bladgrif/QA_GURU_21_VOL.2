@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 @Feature("Check Category on main page")
 @Owner("Roman Grigorev")
 
-public class FilteringSearch extends TestBase {
+public class FilteringSearch extends RemoteTestBase {
     FilteringSearchPage filteringSearchPage = new FilteringSearchPage();
     String category = "Электроника";
     String manufacturer = "Apple";

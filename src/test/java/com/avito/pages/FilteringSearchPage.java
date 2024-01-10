@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class FilteringSearchPage {
-    SelenideElement buttonAllCategories =  $("button[data-marker='top-rubricator/all-categories']").$(byText("Все категории"));
+    SelenideElement buttonAllCategories =  $("button[data-marker='top-rubricator/all-categories']");
     SelenideElement buttonElectronics = $(".new-rubricator-content-leftcontent-_hhyV");
     SelenideElement fieldMobilePhone = $("[data-name='Электроника']").parent().sibling(0).$("[data-name='Мобильные телефоны']");
     SelenideElement fieldManufacturer = $("[placeholder='Производитель']");
@@ -32,6 +32,7 @@ public class FilteringSearchPage {
     @Step("Click the \"All categories\" button")
     public FilteringSearchPage buttonAllCategoriesClick() {
         buttonAllCategories.click();
+        buttonElectronics.shouldBe(visible);
         return this;
     }
 
