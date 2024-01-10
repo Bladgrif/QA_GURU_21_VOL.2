@@ -1,7 +1,10 @@
 package com.avito.pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+
+import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -29,15 +32,14 @@ public class CheckSomeCategoryAndSubcategoryPage {
 
     @Step("Button with all categories should be visible")
     public CheckSomeCategoryAndSubcategoryPage mainButtonAllCategoriesShouldBeVisible() {
-        mainButtonAllCategories.shouldBe(visible);
+        mainButtonAllCategories.should(Condition.appear, Duration.ofSeconds(10));
         return this;
     }
 
     @Step("Click the button with all categories")
     public CheckSomeCategoryAndSubcategoryPage mainButtonAllCategoriesClick() {
-        mainButtonAllCategories.shouldBe(visible);
         mainButtonAllCategories.click();
-        buttonFromCatalog.shouldBe(visible);
+        buttonFromCatalog.should(Condition.appear, Duration.ofSeconds(10));;
         return this;
     }
 

@@ -27,7 +27,7 @@ public class FilteringSearchPage {
 
     @Step("Click the button with all categories")
     public FilteringSearchPage mainButtonAllCategoriesShouldBeVisible() {
-        buttonAllCategories.shouldBe(visible);
+        buttonAllCategories.should(Condition.appear, Duration.ofSeconds(10));
         return this;
     }
 
