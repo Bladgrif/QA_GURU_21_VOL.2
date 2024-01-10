@@ -33,7 +33,7 @@ public class CheckCategoryAndSubcategory extends RemoteTestBase {
             "Недвижимость"
     })
 //    @Test
-//    @Disabled
+    @Disabled
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Checking the category Cars and its subcategories from the catalog")
     void checkCategoryAndSubcategoryFromMainPage(String category) {

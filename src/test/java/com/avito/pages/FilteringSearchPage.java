@@ -18,10 +18,17 @@ public class FilteringSearchPage {
     SelenideElement fieldManufacturer = $("[placeholder='Производитель']");
     SelenideElement filedfromManufacturer = $("[data-placement='bottom-start']");
     SelenideElement buttonSearch = $("button[data-marker='search-filters/submit-button']");
+    SelenideElement fieldMobilePhonefirst = $("a[title='Мобильные телефоны']");
 
     @Step("Open page")
     public FilteringSearchPage openPage() {
-        open("https://www.avito.ru/");
+        open("https://www.avito.ru/cheboksary/telefony");
+        return this;
+    }
+
+    @Step("Click the button with mobile phone")
+    public FilteringSearchPage fieldMobilePhoneChoose() {
+        fieldMobilePhonefirst.click();
         return this;
     }
 

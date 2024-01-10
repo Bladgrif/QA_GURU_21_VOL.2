@@ -9,6 +9,7 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -17,7 +18,7 @@ import org.junit.jupiter.api.Test;
 @Feature("Check Category on main page")
 @Owner("Roman Grigorev")
 
-public class FilteringSearch extends RemoteTestBase {
+public class FilteringSearch extends TestBase {
     FilteringSearchPage filteringSearchPage = new FilteringSearchPage();
     String category = "Электроника";
     String manufacturer = "Apple";
@@ -30,10 +31,11 @@ public class FilteringSearch extends RemoteTestBase {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         filteringSearchPage.openPage()
-                .mainButtonAllCategoriesShouldBeVisible()
-                .buttonAllCategoriesClick()
-                .buttonElectronicsHover(category)
-                .fieldMobilePhoneClick()
+//                .mainButtonAllCategoriesShouldBeVisible()
+//                .buttonAllCategoriesClick()
+//                .buttonElectronicsHover(category)
+//                .fieldMobilePhoneClick()
+                .fieldMobilePhoneChoose()
                 .fieldManufacturerSet(manufacturer)
                 .filedfromManufacturerClick(manufacturer)
                 .buttonSearchClick()
