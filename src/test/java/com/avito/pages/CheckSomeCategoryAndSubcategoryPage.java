@@ -1,6 +1,7 @@
 package com.avito.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -19,22 +20,25 @@ public class CheckSomeCategoryAndSubcategoryPage {
             JobList = {"Ищу работу", "Ищу сотрудника"},
             RealtyList = {"Купить жильё", "Снять посуточно", "Снять долгосрочно", "Коммерческая недвижимость", "Другие категории"};
 
+    @Step("Open page")
     public CheckSomeCategoryAndSubcategoryPage openPage() {
         open("https://www.avito.ru/");
         return this;
     }
 
+    @Step("Click the button with all categories")
     public CheckSomeCategoryAndSubcategoryPage mainButtonAllCategoriesClick() {
         mainButtonAllCategories.click();
         return this;
     }
 
-    public CheckSomeCategoryAndSubcategoryPage buttonTransportFromCatalogHover(String category) {
+    @Step("Move the mouse over the category")
+    public CheckSomeCategoryAndSubcategoryPage buttonFromCatalogHover(String category) {
         buttonFromCatalog.$(byText(category)).hover();
-        ;
         return this;
     }
 
+    @Step("Let's check that the subcategories display the category name of their catalog")
     public CheckSomeCategoryAndSubcategoryPage checkMainTextAfterButtonFromCatalogHover(String category) {
         switch (category) {
             case ("Транспорт"):
@@ -50,6 +54,7 @@ public class CheckSomeCategoryAndSubcategoryPage {
         return this;
     }
 
+    @Step("Let's check that all the necessary categories are displayed in the subcategories")
     public CheckSomeCategoryAndSubcategoryPage checkSubcategorysTextAfterButtonFromCatalogHover(String category) {
         switch (category) {
             case ("Транспорт"):
@@ -65,6 +70,7 @@ public class CheckSomeCategoryAndSubcategoryPage {
         return this;
     }
 
+    @Step("Method for checking the collection")
     public CheckSomeCategoryAndSubcategoryPage checkCategoriesLists(String mainCategory, String[] List) {
         String badMoment2 = "[data-name='" + mainCategory + "']";
         for (String category : List) {

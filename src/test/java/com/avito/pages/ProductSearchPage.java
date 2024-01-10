@@ -1,6 +1,7 @@
 package com.avito.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import java.util.List;
 
@@ -10,17 +11,21 @@ public class ProductSearchPage {
 
     SelenideElement fieldSearch = $("[data-marker='search-form'] [data-marker='search-form/suggest']");
 
+    @Step("Open page")
     public ProductSearchPage openPage() {
         open("https://www.avito.ru/");
         return this;
     }
 
+    @Step("Enter the name of the model in the search field")
     public ProductSearchPage setFieldSearch(String value) {
-        fieldSearch.setValue(value).pressEnter();;
+        fieldSearch.setValue(value).pressEnter();
+        ;
         return this;
     }
 
-    public ProductSearchPage checkElementsFromCollection (String value) {
+    @Step("Checking the search results")
+    public ProductSearchPage checkElementsFromCollection(String value) {
         value = ".*" + value + ".*";
 //        String value = ".*iPhone.*";
         List<String> texts = $$("[data-marker='catalog-serp'] [itemprop='name']").texts();

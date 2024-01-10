@@ -30,8 +30,6 @@ public class RemoteTestBase {
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-//        capabilities.setCapability("browserName", browserName);
-//        capabilities.setCapability("browserVersion", browserVersion);
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true

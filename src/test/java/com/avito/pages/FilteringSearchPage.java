@@ -1,6 +1,7 @@
 package com.avito.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import java.util.List;
 
@@ -15,42 +16,52 @@ public class FilteringSearchPage {
     SelenideElement filedfromManufacturer = $("[data-placement='bottom-start']");
     SelenideElement buttonSearch = $("button[data-marker='search-filters/submit-button']");
 
+    @Step("Open page")
     public FilteringSearchPage openPage() {
         open("https://www.avito.ru/");
         return this;
     }
 
-    public FilteringSearchPage buttonAllCategoriesClick () {
+    @Step("Click the \"All categories\" button")
+    public FilteringSearchPage buttonAllCategoriesClick() {
         buttonAllCategories.click();
         return this;
     }
 
-    public FilteringSearchPage buttonElectronicsHover (String value) {
-        buttonElectronics.$(byText(value)).hover();;
+    @Step("Hover the mouse over the Electronics category")
+    public FilteringSearchPage buttonElectronicsHover(String value) {
+        buttonElectronics.$(byText(value)).hover();
+        ;
         return this;
     }
 
-    public FilteringSearchPage fieldMobilePhoneClick () {
+    @Step("Make a click in the field with the choice of phone model")
+    public FilteringSearchPage fieldMobilePhoneClick() {
         fieldMobilePhone.click();
         return this;
     }
 
-    public FilteringSearchPage fieldManufacturerSet (String value) {
+    @Step("Enter the model name in the field")
+    public FilteringSearchPage fieldManufacturerSet(String value) {
         fieldManufacturer.setValue(value);
         return this;
     }
-    public FilteringSearchPage filedfromManufacturerClick (String value) {
+
+    @Step("Make a click after entering the model")
+    public FilteringSearchPage filedfromManufacturerClick(String value) {
         filedfromManufacturer.$(byText(value)).click();
         return this;
     }
 
-    public FilteringSearchPage buttonSearchClick () {
+    @Step("Click the search button")
+    public FilteringSearchPage buttonSearchClick() {
         buttonSearch.click();
         return this;
     }
-    public FilteringSearchPage checkElementsFromCollection (String value) {
+
+    @Step("Checking the search results")
+    public FilteringSearchPage checkElementsFromCollection(String value) {
         value = ".*" + value + ".*";
-//        String value = ".*iPhone.*";
         List<String> texts = $$("[data-marker='catalog-serp'] [itemprop='name']").texts();
         for (String text : texts) {
             assert (text).matches(value);
