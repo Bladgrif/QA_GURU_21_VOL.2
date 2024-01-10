@@ -5,11 +5,12 @@ import io.qameta.allure.Step;
 
 import java.util.List;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class FilteringSearchPage {
-    SelenideElement buttonAllCategories = $("#a").parent().parent().parent().$(byText("Все категории"));
+    SelenideElement buttonAllCategories =  $("button[data-marker='top-rubricator/all-categories']").$(byText("Все категории"));
     SelenideElement buttonElectronics = $(".new-rubricator-content-leftcontent-_hhyV");
     SelenideElement fieldMobilePhone = $("[data-name='Электроника']").parent().sibling(0).$("[data-name='Мобильные телефоны']");
     SelenideElement fieldManufacturer = $("[placeholder='Производитель']");
@@ -22,6 +23,12 @@ public class FilteringSearchPage {
         return this;
     }
 
+    @Step("Click the button with all categories")
+    public FilteringSearchPage mainButtonAllCategoriesShouldBeVisible() {
+        buttonAllCategories.shouldBe(visible);
+        return this;
+    }
+
     @Step("Click the \"All categories\" button")
     public FilteringSearchPage buttonAllCategoriesClick() {
         buttonAllCategories.click();
@@ -31,7 +38,6 @@ public class FilteringSearchPage {
     @Step("Hover the mouse over the Electronics category")
     public FilteringSearchPage buttonElectronicsHover(String value) {
         buttonElectronics.$(byText(value)).hover();
-        ;
         return this;
     }
 

@@ -1,9 +1,9 @@
 package com.avito.tests;
 
+import com.avito.base.RemoteTestBase;
 import com.avito.base.TestBase;
 import com.avito.pages.FilteringSearchPage;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import com.demoqa.elements.StepsWithAllure;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
@@ -30,6 +30,7 @@ public class FilteringSearch extends TestBase {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         filteringSearchPage.openPage()
+                .mainButtonAllCategoriesShouldBeVisible()
                 .buttonAllCategoriesClick()
                 .buttonElectronicsHover(category)
                 .fieldMobilePhoneClick()

@@ -4,12 +4,13 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class CheckSomeCategoryAndSubcategoryPage {
-    SelenideElement mainButtonAllCategories = $("#a").parent().parent().parent().$(byText("Все категории")),
+//    SelenideElement mainButtonAllCategories = $("#a").parent().parent().parent().$(byText("Все категории")),
+    SelenideElement mainButtonAllCategories = $("button[data-marker='top-rubricator/all-categories']").$(byText("Все категории")),
             buttonFromCatalog = $(".new-rubricator-content-leftcontent-_hhyV"),
             textButtonFromCatalogTransport = $("[data-name='Транспорт']"),
             textButtonFromCatalogRealty = $("[data-name='Недвижимость']"),
@@ -23,6 +24,12 @@ public class CheckSomeCategoryAndSubcategoryPage {
     @Step("Open page")
     public CheckSomeCategoryAndSubcategoryPage openPage() {
         open("https://www.avito.ru/");
+        return this;
+    }
+
+    @Step("Click the button with all categories")
+    public CheckSomeCategoryAndSubcategoryPage mainButtonAllCategoriesShouldBeVisible() {
+        mainButtonAllCategories.shouldBe(visible);
         return this;
     }
 

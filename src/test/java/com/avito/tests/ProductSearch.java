@@ -1,10 +1,8 @@
 package com.avito.tests;
 
-import com.avito.base.TestBase;
-import com.avito.pages.FilteringSearchPage;
+import com.avito.base.RemoteTestBase;
 import com.avito.pages.ProductSearchPage;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import com.demoqa.elements.StepsWithAllure;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
@@ -14,15 +12,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
-import static com.codeborne.selenide.Selenide.*;
-
 @Tag("remote_avito")
 @Feature("Check Category on main page")
 @Owner("Roman Grigorev")
 
-public class ProductSearch extends TestBase {
+public class ProductSearch extends RemoteTestBase {
     ProductSearchPage productSearchPage = new ProductSearchPage();
     String model = "iPhone";
     @Test
