@@ -31,6 +31,7 @@ public class FilteringSearchPage {
 
     @Step("Click the \"All categories\" button")
     public FilteringSearchPage buttonAllCategoriesClick() {
+        buttonAllCategories.shouldBe(visible);
         buttonAllCategories.click();
         buttonElectronics.shouldBe(visible);
         return this;

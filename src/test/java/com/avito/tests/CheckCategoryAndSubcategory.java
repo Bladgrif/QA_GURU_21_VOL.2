@@ -11,6 +11,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -21,23 +22,54 @@ import org.junit.jupiter.params.provider.ValueSource;
 public class CheckCategoryAndSubcategory extends RemoteTestBase {
 
     CheckSomeCategoryAndSubcategoryPage checkSomeCategoryAndSubcategoryPage = new CheckSomeCategoryAndSubcategoryPage();
-
-    @ParameterizedTest(name = "Checking the category {0} and its subcategories in the catalog")
-    @ValueSource(strings = {
-            "Транспорт",
-            "Работа",
-            "Недвижимость"
-    })
+    String categoryCars = "Транспорт";
+    String categoryRealty = "Работа";
+    String categoryJobs = "Недвижимость";
+//    @ParameterizedTest(name = "Checking the category {0} and its subcategories in the catalog")
+//    @ValueSource(strings = {
+//            "Транспорт",
+//            "Работа",
+//            "Недвижимость"
+//    })
+    @Test
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Checking the category and its subcategories from the catalog")
-    void checkCategoryCarsAndSubcategoryFromMainPage(String category) {
+    @DisplayName("Checking the category Cars and its subcategories from the catalog")
+    void checkCategoryCarsAndSubcategoryFromMainPage() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         checkSomeCategoryAndSubcategoryPage.openPage()
                 .mainButtonAllCategoriesShouldBeVisible()
                 .mainButtonAllCategoriesClick()
-                .buttonFromCatalogHover(category)
-                .checkMainTextAfterButtonFromCatalogHover(category)
-                .checkSubcategorysTextAfterButtonFromCatalogHover(category);
+                .buttonFromCatalogHover(categoryCars)
+                .checkMainTextAfterButtonFromCatalogHover(categoryCars)
+                .checkSubcategorysTextAfterButtonFromCatalogHover(categoryCars);
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Checking the category Realty and its subcategories from the catalog")
+    void checkCategoryRealtyAndSubcategoryFromMainPage() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
+        checkSomeCategoryAndSubcategoryPage.openPage()
+                .mainButtonAllCategoriesShouldBeVisible()
+                .mainButtonAllCategoriesClick()
+                .buttonFromCatalogHover(categoryRealty)
+                .checkMainTextAfterButtonFromCatalogHover(categoryRealty)
+                .checkSubcategorysTextAfterButtonFromCatalogHover(categoryRealty);
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Checking the category Jobs and its subcategories from the catalog")
+    void checkCategoryJobsAndSubcategoryFromMainPage() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
+        checkSomeCategoryAndSubcategoryPage.openPage()
+                .mainButtonAllCategoriesShouldBeVisible()
+                .mainButtonAllCategoriesClick()
+                .buttonFromCatalogHover(categoryJobs)
+                .checkMainTextAfterButtonFromCatalogHover(categoryJobs)
+                .checkSubcategorysTextAfterButtonFromCatalogHover(categoryJobs);
     }
 }

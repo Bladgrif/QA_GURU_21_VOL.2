@@ -24,7 +24,6 @@ public class CheckSomeCategoryAndSubcategoryPage {
     @Step("Open page")
     public CheckSomeCategoryAndSubcategoryPage openPage() {
         open("https://www.avito.ru/");
-        sleep(4000);
         return this;
     }
 
@@ -36,6 +35,7 @@ public class CheckSomeCategoryAndSubcategoryPage {
 
     @Step("Click the button with all categories")
     public CheckSomeCategoryAndSubcategoryPage mainButtonAllCategoriesClick() {
+        mainButtonAllCategories.shouldBe(visible);
         mainButtonAllCategories.click();
         buttonFromCatalog.shouldBe(visible);
         return this;
