@@ -7,7 +7,7 @@ import java.util.List;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class SearchPages {
+public class FilteringSearchPage {
     SelenideElement buttonAllCategories = $("#a").parent().parent().parent().$(byText("Все категории"));
     SelenideElement buttonElectronics = $(".new-rubricator-content-leftcontent-_hhyV");
     SelenideElement fieldMobilePhone = $("[data-name='Электроника']").parent().sibling(0).$("[data-name='Мобильные телефоны']");
@@ -15,40 +15,40 @@ public class SearchPages {
     SelenideElement filedfromManufacturer = $("[data-placement='bottom-start']");
     SelenideElement buttonSearch = $("button[data-marker='search-filters/submit-button']");
 
-    public SearchPages openPage() {
+    public FilteringSearchPage openPage() {
         open("https://www.avito.ru/");
         return this;
     }
 
-    public SearchPages buttonAllCategoriesClick () {
+    public FilteringSearchPage buttonAllCategoriesClick () {
         buttonAllCategories.click();
         return this;
     }
 
-    public SearchPages buttonElectronicsHover (String value) {
+    public FilteringSearchPage buttonElectronicsHover (String value) {
         buttonElectronics.$(byText(value)).hover();;
         return this;
     }
 
-    public SearchPages fieldMobilePhoneClick () {
+    public FilteringSearchPage fieldMobilePhoneClick () {
         fieldMobilePhone.click();
         return this;
     }
 
-    public SearchPages fieldManufacturerSet (String value) {
+    public FilteringSearchPage fieldManufacturerSet (String value) {
         fieldManufacturer.setValue(value);
         return this;
     }
-    public SearchPages filedfromManufacturerClick (String value) {
+    public FilteringSearchPage filedfromManufacturerClick (String value) {
         filedfromManufacturer.$(byText(value)).click();
         return this;
     }
 
-    public SearchPages buttonSearchClick () {
+    public FilteringSearchPage buttonSearchClick () {
         buttonSearch.click();
         return this;
     }
-    public SearchPages checkElementsFromCollection (String value) {
+    public FilteringSearchPage checkElementsFromCollection (String value) {
         value = ".*" + value + ".*";
 //        String value = ".*iPhone.*";
         List<String> texts = $$("[data-marker='catalog-serp'] [itemprop='name']").texts();

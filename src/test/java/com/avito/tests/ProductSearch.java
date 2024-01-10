@@ -1,12 +1,15 @@
 package com.avito.tests;
 
 import com.avito.base.TestBase;
-import com.codeborne.selenide.CollectionCondition;
+import com.avito.pages.FilteringSearchPage;
+import com.avito.pages.ProductSearchPage;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 import java.util.List;
 
@@ -17,13 +20,15 @@ import static com.codeborne.selenide.Selenide.*;
 @Owner("Roman Grigorev")
 
 public class ProductSearch extends TestBase {
+    ProductSearchPage productSearchPage = new ProductSearchPage();
+    String model = "iPhone";
+
     @Test
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("In the search bar, enter the phone model, check the search results")
     void ProductSearchByKeyword() {
-        open("https://www.avito.ru/");
-        $("[data-marker='search-form'] [data-marker='search-form/suggest']").setValue("iphone").pressEnter();
-        List<String> texts = $$("[data-marker='catalog-serp'] [itemprop='name']").texts();
-        for (String text : texts) {
-            assert (text).matches(".*iPhone.*");
-        }
+        productSearchPage.openPage()
+                .setFieldSearch(model)
+                .checkElementsFromCollection(model);
     }
 }

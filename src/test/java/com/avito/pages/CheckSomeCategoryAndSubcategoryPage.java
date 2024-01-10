@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class CheckSomeCategoryAndSubcategoryPages {
+public class CheckSomeCategoryAndSubcategoryPage {
     SelenideElement mainButtonAllCategories = $("#a").parent().parent().parent().$(byText("Все категории")),
             buttonFromCatalog = $(".new-rubricator-content-leftcontent-_hhyV"),
             textButtonFromCatalogTransport = $("[data-name='Транспорт']"),
@@ -19,23 +19,23 @@ public class CheckSomeCategoryAndSubcategoryPages {
             JobList = {"Ищу работу", "Ищу сотрудника"},
             RealtyList = {"Купить жильё", "Снять посуточно", "Снять долгосрочно", "Коммерческая недвижимость", "Другие категории"};
 
-    public CheckSomeCategoryAndSubcategoryPages openPage() {
+    public CheckSomeCategoryAndSubcategoryPage openPage() {
         open("https://www.avito.ru/");
         return this;
     }
 
-    public CheckSomeCategoryAndSubcategoryPages mainButtonAllCategoriesClick() {
+    public CheckSomeCategoryAndSubcategoryPage mainButtonAllCategoriesClick() {
         mainButtonAllCategories.click();
         return this;
     }
 
-    public CheckSomeCategoryAndSubcategoryPages buttonTransportFromCatalogHover(String category) {
+    public CheckSomeCategoryAndSubcategoryPage buttonTransportFromCatalogHover(String category) {
         buttonFromCatalog.$(byText(category)).hover();
         ;
         return this;
     }
 
-    public CheckSomeCategoryAndSubcategoryPages checkMainTextAfterButtonFromCatalogHover(String category) {
+    public CheckSomeCategoryAndSubcategoryPage checkMainTextAfterButtonFromCatalogHover(String category) {
         switch (category) {
             case ("Транспорт"):
                 textButtonFromCatalogTransport.shouldHave(text(category));
@@ -50,7 +50,7 @@ public class CheckSomeCategoryAndSubcategoryPages {
         return this;
     }
 
-    public CheckSomeCategoryAndSubcategoryPages checkSubcategorysTextAfterButtonFromCatalogHover(String category) {
+    public CheckSomeCategoryAndSubcategoryPage checkSubcategorysTextAfterButtonFromCatalogHover(String category) {
         switch (category) {
             case ("Транспорт"):
                 checkCategoriesLists(category, TransportList);
@@ -65,7 +65,7 @@ public class CheckSomeCategoryAndSubcategoryPages {
         return this;
     }
 
-    public CheckSomeCategoryAndSubcategoryPages checkCategoriesLists(String mainCategory, String[] List) {
+    public CheckSomeCategoryAndSubcategoryPage checkCategoriesLists(String mainCategory, String[] List) {
         String badMoment2 = "[data-name='" + mainCategory + "']";
         for (String category : List) {
             String badMoment = "[data-name='" + category + "']";
