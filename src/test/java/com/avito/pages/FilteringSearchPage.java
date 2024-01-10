@@ -1,8 +1,10 @@
 package com.avito.pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
+import java.time.Duration;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -31,9 +33,8 @@ public class FilteringSearchPage {
 
     @Step("Click the \"All categories\" button")
     public FilteringSearchPage buttonAllCategoriesClick() {
-        buttonAllCategories.shouldBe(visible);
         buttonAllCategories.click();
-        buttonElectronics.shouldBe(visible);
+        buttonElectronics.should(Condition.appear, Duration.ofSeconds(10));
         return this;
     }
 
