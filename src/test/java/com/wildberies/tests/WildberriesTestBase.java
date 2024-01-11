@@ -1,13 +1,12 @@
 package com.wildberies.tests;
 
 import com.wildberies.pages.WildberriesTestPage;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static com.codeborne.selenide.Selenide.sleep;
 
-public class WildberriesTest extends BaseTest {
+public class WildberriesTestBase extends TestBase {
     WildberriesTestPage wildberriesTestPage = new WildberriesTestPage();
 
     @ValueSource(strings = {
