@@ -20,7 +20,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 @Feature("Check Category on main page")
 @Owner("Roman Grigorev")
 
-public class CheckCategoryAndSubcategory extends RemoteTestBase {
+public class CheckCategoryAndSubcategory extends TestBase {
 
     CheckSomeCategoryAndSubcategoryPage checkSomeCategoryAndSubcategoryPage = new CheckSomeCategoryAndSubcategoryPage();
 //    String categoryCars = "Транспорт";
@@ -33,7 +33,7 @@ public class CheckCategoryAndSubcategory extends RemoteTestBase {
             "Недвижимость"
     })
 //    @Test
-    @Disabled
+//    @Disabled
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Checking the category Cars and its subcategories from the catalog")
     void checkCategoryAndSubcategoryFromMainPage(String category) {
