@@ -6,14 +6,13 @@ import io.qameta.allure.Step;
 
 import java.time.Duration;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class CheckSomeCategoryAndSubcategoryPage {
 //    SelenideElement mainButtonAllCategories = $("#a").parent().parent().parent().$(byText("Все категории")),
-    SelenideElement mainButtonAllCategories = $("button[data-marker='top-rubricator/all-categories']"),
+    SelenideElement mainButtonAllCategories = $("button[data-marker='top-rubricator/all-categories'] svg"),
             buttonFromCatalog = $(".new-rubricator-content-leftcontent-_hhyV"),
             textButtonFromCatalogTransport = $("[data-name='Транспорт']"),
             textButtonFromCatalogRealty = $("[data-name='Недвижимость']"),
@@ -32,19 +31,22 @@ public class CheckSomeCategoryAndSubcategoryPage {
 
     @Step("Button with all categories should be visible")
     public CheckSomeCategoryAndSubcategoryPage mainButtonAllCategoriesShouldBeVisible() {
-        mainButtonAllCategories.should(Condition.appear, Duration.ofSeconds(10));
+        mainButtonAllCategories.should(visible, Duration.ofSeconds(15));
+
         return this;
     }
 
     @Step("Click the button with all categories")
     public CheckSomeCategoryAndSubcategoryPage mainButtonAllCategoriesClick() {
+        mainButtonAllCategories.shouldBe(appear, Duration.ofSeconds(15));
         mainButtonAllCategories.click();
-        buttonFromCatalog.should(Condition.appear, Duration.ofSeconds(10));;
+        mainButtonAllCategories.click();
         return this;
     }
 
     @Step("Move the mouse over the category")
     public CheckSomeCategoryAndSubcategoryPage buttonFromCatalogHover(String category) {
+        buttonFromCatalog.should(visible, Duration.ofSeconds(10));
         buttonFromCatalog.$(byText(category)).hover();
         return this;
     }
