@@ -34,6 +34,7 @@ public class CheckCategoryAndSubcategory extends TestBase {
 //    })
     @Test
 //    @Disabled
+    @Tag("remote_avito")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Checking the category Cars and its subcategories from the catalog")
     void checkCategoryAndSubcategoryFromMainPage() {
@@ -49,6 +50,7 @@ public class CheckCategoryAndSubcategory extends TestBase {
 //
     @Test
 //    @Disabled
+    @Tag("remote_avito")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Checking the category Realty and its subcategories from the catalog")
     void checkCategoryRealtyAndSubcategoryFromMainPage() {
@@ -64,6 +66,7 @@ public class CheckCategoryAndSubcategory extends TestBase {
 
     @Test
 //    @Disabled
+    @Tag("remote_avito")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Checking the category Jobs and its subcategories from the catalog")
     void checkCategoryJobsAndSubcategoryFromMainPage() {
