@@ -1,4 +1,4 @@
-package com.demoqa.elements;
+package com.demoqa.tests.elements;
 
 import com.codeborne.selenide.SelenideElement;
 import com.demoqa.pages.TextBoxPage;

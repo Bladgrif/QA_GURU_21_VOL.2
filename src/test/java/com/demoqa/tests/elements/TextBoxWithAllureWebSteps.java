@@ -1,8 +1,7 @@
-package com.demoqa.elements;
+package com.demoqa.tests.elements;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.demoqa.base.TestBase;
-import com.demoqa.pages.TextBoxPage;
 import io.qameta.allure.*;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;

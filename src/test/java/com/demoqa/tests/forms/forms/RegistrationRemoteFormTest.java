@@ -1,4 +1,4 @@
-package com.demoqa.forms;
+package com.demoqa.tests.forms.forms;
 
 import com.demoqa.base.RemoteTestBase;
 import org.junit.jupiter.api.DisplayName;

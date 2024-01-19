@@ -1,4 +1,4 @@
-package com.demoqa.forms;
+package com.demoqa.tests.forms.forms;
 
 import com.demoqa.base.TestBase;
 import org.junit.jupiter.api.Test;

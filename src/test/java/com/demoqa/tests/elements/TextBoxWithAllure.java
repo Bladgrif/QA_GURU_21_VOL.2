@@ -1,4 +1,4 @@
-package com.demoqa.elements;
+package com.demoqa.tests.elements;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.demoqa.base.TestBase;

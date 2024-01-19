@@ -1,4 +1,4 @@
-package com.demoqa.elements;
+package com.demoqa.tests.elements;
 
 import com.demoqa.base.TestBase;
 import com.demoqa.pages.TextBoxPage;
